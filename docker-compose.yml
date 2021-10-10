@@ -1,0 +1,18 @@
+version: "3.8"
+services:
+  urgenceqc_mysql:
+    image: mysql:8.0
+    container_name: urgenceqc_mysql
+    restart: always
+    command: --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    environment:
+      MYSQL_DATABASE: urgenceqc
+      MYSQL_USER: urgenceqc
+      MYSQL_PASSWORD: urgenceqc
+      MYSQL_ROOT_PASSWORD: urgenceqc
+    ports:
+      - "3306:3306"
+    volumes:
+      - urgenceqc_mysql:/var/lib/mysql
+volumes:
+  urgenceqc_mysql:
